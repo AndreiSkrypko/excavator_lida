@@ -1,71 +1,343 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>"Экскаватор в лиде"</title>
+    <title>Экскаватор в Лиде</title>
 
-    <!-- Подключение Bootstrap 5: готовые стили для сетки, кнопок, навигации и адаптивности -->
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Подключение Font Awesome: иконки (например, соцсети, стрелки, машины и т.д.) -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- Подключение шрифта Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Подключение css -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Подключение js -->
-    <script src="js/script.js"></script>
-
-    <!-- Подключение Formspree это форма для обратной связи-->
-    <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Подключаем Bootstrap Icons -->
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <style>
+        /* === Основной стиль для всей страницы === */
+        body {
+          font-family: 'Poppins', sans-serif;
+          margin: 0;
+        }
+
+        /* === Контейнер с фоном === */
+        .header-container {
+          background-image: url('img/excavator.jpg');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+          background-attachment: fixed;
+          padding: 40px 20px;
+          color: #212529;
+          min-height: 100vh;
+          position: relative;
+          z-index: 1;
+        }
+
+        /* === Градиентная маска поверх фона === */
+        .header-container::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.2) 100%);
+          z-index: 2;
+          pointer-events: none;
+        }
+
+        /* === Контент поверх маски === */
+        .header-container > .row {
+          position: relative;
+          z-index: 3;
+        }
+
+        /* === Время работы === */
+        .worktime {
+          font-size: 0.95rem;
+          color: #343a40;
+        }
+
+        /* === Телефоны === */
+        .phone-link {
+          font-weight: 600;
+          color: #212529;
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+        .phone-link:hover {
+          color: #b34700;
+        }
+
+        /* === Оранжевая кнопка === */
+        .btn-orange {
+          background: linear-gradient(90deg, #b34700, #992f00);
+          color: #fff;
+          font-weight: 600;
+          border-radius: 10px;
+          padding: 10px 24px;
+          transition: all 0.3s ease-in-out;
+        }
+        .btn-orange:hover {
+          filter: brightness(1.1);
+          transform: translateY(-1px);
+        }
+
+        /* === Заголовок === */
+        h1 {
+          font-size: 2rem;
+          font-weight: 700;
+          margin-top: 30px;
+          color: #212529;
+        }
+
+        /* === Кнопка справа === */
+        .btn-col {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+        @media (max-width: 768px) {
+          .btn-col {
+            justify-content: flex-end;
+            margin-top: 15px;
+          }
+        }
+
+        /* === Цвет для Viber === */
+        .text-purple {
+          color: #8f5db7;
+        }
+        .text-purple:hover {
+          color: #a275cc;
+        }
+
+
+/* === стили для кнопки вверх === */
+        #scrollTopBtn:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+
+    </style>
 </head>
+
 <body>
 
-<!-- Подключи Bootstrap и Bootstrap Icons в <head> -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<!-- === ШАПКА === -->
+<div class="container-fluid header-container">
+    <div class="row align-items-center justify-content-between flex-wrap g-3">
 
-<!-- Контейнер верхнего блока -->
-<div class="container-fluid py-3" style="background-color: #f5f5f5;">
-    <div class="row align-items-center">
         <!-- Логотип -->
-        <div class="col-md-2 text-center text-md-start mb-3 mb-md-0">
-            <img src="img/logo.png" alt="Аренда экскаватора" style="height: 80px;">
+        <div class="col-auto d-flex align-items-center">
+            <img src="img/logo.png" alt="Аренда экскаватора" style="height: 100px;">
         </div>
 
-        <!-- Время работы и телефоны -->
-        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-            <div class="fw-semibold mb-2">На связи <span class="text-danger">24/7</span></div>
-            <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-start">
-                <div class="d-flex align-items-center me-md-4 mb-2 mb-md-0">
-                    <i class="bi bi-phone-fill me-2 text-danger" style="font-size: 1.2rem;"></i>
-                    <a href="tel:+375441112233" class="text-decoration-none fw-semibold">+375 44 111-22-33</a>
-                </div>
-                <div class="d-flex align-items-center">
-                    <i class="bi bi-phone-fill me-2 text-dark" style="font-size: 1.2rem;"></i>
-                    <a href="tel:+375331112233" class="text-decoration-none fw-semibold">+375 33 111-22-33</a>
-                </div>
+        <!-- Время работы -->
+        <div class="col-auto text-center text-md-start">
+            <div class="fw-semibold">Работаем <span class="text-warning">24/7</span></div>
+            <div class="worktime">Без выходных и праздников</div>
+        </div>
+
+        <!-- Телефоны -->
+        <div class="col-auto d-flex flex-column flex-md-row align-items-center gap-3">
+            <!-- МТС -->
+            <div class="d-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 100 100" class="me-2">
+                    <rect width="100" height="100" rx="12" fill="#e60000"/>
+                    <ellipse cx="50" cy="50" rx="22" ry="30" fill="#ffffff"/>
+                </svg>
+                <a href="tel:+375441112233" class="phone-link">+375 44 111-22-33</a>
+            </div>
+
+            <!-- A1 -->
+            <div class="d-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 200 200" class="me-2">
+                    <text x="0" y="140" font-family="Arial, sans-serif" font-size="140" fill="#000000" font-weight="bold">A1</text>
+                </svg>
+                <a href="tel:+375331112233" class="phone-link">+375 33 111-22-33</a>
             </div>
         </div>
 
-        <!-- Кнопка "Свяжитесь со мной" -->
-        <div class="col-md-4 text-center text-md-end">
-            <a href="#contact-form" class="btn btn-danger px-4 py-2 fw-semibold">
-                Свяжитесь со мной
+        <!-- Соцсети -->
+        <div class="col-auto d-flex align-items-center gap-3 social-links fs-4">
+            <a href="https://wa.me/375291112233" target="_blank" rel="noopener" class="text-success" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
             </a>
+            <a href="viber://chat?number=+375291112233" target="_blank" rel="noopener" class="text-purple" title="Viber">
+                <i class="fab fa-viber"></i>
+            </a>
+            <a href="https://t.me/yourusername" target="_blank" rel="noopener" class="text-info" title="Telegram">
+                <i class="fab fa-telegram"></i>
+            </a>
+            <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener" class="text-danger" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+
+        <!-- Кнопка -->
+        <div class="col-auto btn-col">
+            <a href="#contact-form" class="btn btn-orange shadow-sm">
+                <i class="bi bi-chat-dots-fill me-2"></i> Заказать консультацию
+            </a>
+        </div>
+
+    </div>
+
+
+
+    <!-- Заголовок -->
+<div class="row mt-4">
+    <div class="col-12">
+        <h1>Аренда экскаватора в г. Лида и Лидском районе</h1>
+    </div>
+
+    <!-- Блок преимуществ -->
+    <div class="col-12 mt-3">
+        <div class="row g-4">
+
+            <!-- Преимущество 1 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                    <div class="mb-2 fw-bold">🚚 БЫСТРАЯ ДОСТАВКА</div>
+                    <div class="small">
+                        Наша техника находится в исправном техническом состоянии. Благодаря этому мы оперативно прибываем на место.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Преимущество 2 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                    <div class="mb-2 fw-bold">👷 Забота о вашем объекте</div>
+                    <div class="small">
+                        Наши профессиональные водители аккуратно выполнят работу.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Преимущество 3 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                    <div class="mb-2 fw-bold">🛠️ 10-ЛЕТНИЙ ОПЫТ РАБОТЫ</div>
+                    <div class="small">
+                        Мы работаем с 2013 года. За это время выполнено более 5 000 работ различной сложности.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Преимущество 4 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="p-3 border rounded bg-white shadow-sm h-100">
+                    <div class="mb-2 fw-bold">💰 ГАРАНТИЯ НИЗКИХ ЦЕН</div>
+                    <div class="small">
+                        Благодаря собственному парку, мы обеспечиваем наиболее привлекательные цены.
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
 
+
+
+</div>
+
+<!-- === ФУТЕР === -->
+<footer class="bg-dark text-white pt-4 pb-3 mt-5">
+    <div class="container">
+        <div class="row align-items-start g-4">
+
+            <!-- Логотип и описание -->
+            <div class="col-md-4 text-center text-md-start">
+                <img src="img/logo.png" alt="Логотип" style="height: 80px;">
+                <p class="mt-2 small">Услуги аренды экскаватора в Лиде и Лидском районе. Круглосуточно, без
+                    выходных.</p>
+            </div>
+
+            <!-- Контакты -->
+            <div class="col-md-4 text-center">
+                <h6 class="text-uppercase fw-bold mb-2">Контакты</h6>
+                <p class="mb-1"><i class="bi bi-telephone-fill me-2"></i><a href="tel:+375441112233"
+                                                                            class="text-white text-decoration-none">+375
+                    44 111-22-33</a></p>
+                <p class="mb-1"><i class="bi bi-telephone-fill me-2"></i><a href="tel:+375331112233"
+                                                                            class="text-white text-decoration-none">+375
+                    33 111-22-33</a></p>
+                <p class="mb-1"><i class="bi bi-envelope-fill me-2"></i><a href="mailto:info@example.com"
+                                                                           class="text-white text-decoration-none">info@example.com</a>
+                </p>
+            </div>
+
+            <!-- Навигация -->
+            <div class="col-md-4 text-center text-md-end">
+                <h6 class="text-uppercase fw-bold mb-2">Навигация</h6>
+                <ul class="list-unstyled small">
+                    <li><a href="#services" class="text-white text-decoration-none">Услуги</a></li>
+                    <li><a href="#about" class="text-white text-decoration-none">О нас</a></li>
+                    <li><a href="#contact-form" class="text-white text-decoration-none">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Соцсети в футере -->
+        <div class="text-center my-3 social-links">
+            <a href="https://wa.me/375291112233" target="_blank" rel="noopener" class="text-success fs-4 me-3"
+               title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="viber://chat?number=+375291112233" target="_blank" rel="noopener" class="text-purple fs-4 me-3"
+               title="Viber">
+                <i class="fab fa-viber"></i>
+            </a>
+            <a href="https://t.me/yourusername" target="_blank" rel="noopener" class="text-info fs-4 me-3"
+               title="Telegram">
+                <i class="fab fa-telegram"></i>
+            </a>
+            <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener" class="text-danger fs-4"
+               title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+
+        <!-- Нижняя строка -->
+        <div class="text-center mt-3 border-top border-secondary pt-3 small">
+            © 2025 Экскаватор Лида. Все права защищены.
+        </div>
+    </div>
+</footer>
+
+
+<!-- Кнопка "Вверх" -->
+<button id="scrollTopBtn" class="btn btn-orange shadow rounded-circle"
+        style="position: fixed; bottom: 30px; right: 30px; display: none; z-index: 9999;">
+    <i class="bi bi-arrow-up-short fs-4"></i>
+</button>
+
+
+<!-- Скрипт для кнопки "Вверх" -->
+<script>
+    // Получаем кнопку
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    // Показать кнопку при прокрутке вниз
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            scrollTopBtn.style.display = "block";
+        } else {
+            scrollTopBtn.style.display = "none";
+        }
+    };
+
+    // При клике — плавный скролл вверх
+    scrollTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
 
 
 </body>
