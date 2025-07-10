@@ -1,0 +1,2116 @@
+/* === Основной стиль для всей страницы === */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+/* === Контейнер с фоном === */
+.header-container {
+  background-image: url('../img/excavator.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  padding: 60px 20px;
+  color: #212529;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.header-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.3) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.header-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(179,71,0,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(179,71,0,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(179,71,0,0.05) 0%, transparent 50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* === Контент поверх маски === */
+.header-container > .row {
+  position: relative;
+  z-index: 3;
+}
+
+/* === Стили для шапки === */
+.header-container .row:first-child {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.1),
+    0 8px 32px rgba(179,71,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.header-container .row:first-child::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #d4af37, #b8860b, #8b4513, #d4af37);
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* === Логотип с эффектами === */
+.header-container .col-auto:first-child {
+  position: relative;
+}
+
+.header-container .col-auto:first-child img {
+  filter: drop-shadow(0 8px 20px rgba(179,71,0,0.2));
+  transition: all 0.4s ease;
+}
+
+.header-container .col-auto:first-child:hover img {
+  transform: scale(1.05) rotate(2deg);
+  filter: drop-shadow(0 12px 30px rgba(179,71,0,0.3));
+}
+
+/* === Время работы с анимацией === */
+.worktime {
+  font-size: 0.95rem;
+  color: #343a40;
+  position: relative;
+}
+
+.fw-semibold {
+  position: relative;
+  display: inline-block;
+}
+
+.fw-semibold .text-warning {
+  animation: pulse-glow 2s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(255,193,7,0.5);
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    text-shadow: 0 0 10px rgba(255,193,7,0.5);
+    transform: scale(1);
+  }
+  50% { 
+    text-shadow: 0 0 20px rgba(255,193,7,0.8);
+    transform: scale(1.05);
+  }
+}
+
+/* === Телефоны с крутыми эффектами === */
+.phone-item {
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,249,250,0.9));
+  border-radius: 20px;
+  padding: 12px 20px;
+  box-shadow: 
+    0 8px 25px rgba(0,0,0,0.1),
+    0 4px 15px rgba(212,175,55,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.phone-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.1), transparent);
+  transition: left 0.6s;
+}
+
+.phone-item:hover::before {
+  left: 100%;
+}
+
+.phone-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 
+    0 15px 35px rgba(0,0,0,0.15),
+    0 8px 25px rgba(212,175,55,0.2);
+}
+
+.phone-link {
+  font-weight: 600;
+  color: #212529;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.phone-link:hover {
+  color: #d4af37;
+  text-shadow: 0 0 8px rgba(212,175,55,0.3);
+}
+
+/* === Социальные сети с крутыми эффектами === */
+.social-item {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,249,250,0.9));
+  box-shadow: 
+    0 8px 25px rgba(0,0,0,0.1),
+    0 4px 15px rgba(212,175,55,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: scale(0);
+  transition: transform 0.4s;
+}
+
+.social-item:hover::before {
+  transform: scale(1);
+}
+
+.social-item:hover {
+  transform: translateY(-8px) scale(1.15);
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.15),
+    0 12px 30px rgba(212,175,55,0.2);
+}
+
+.social-item.text-success:hover {
+  background: linear-gradient(135deg, #25d366, #128c7a);
+  color: white !important;
+}
+
+.social-item.text-purple:hover {
+  background: linear-gradient(135deg, #8f5db7, #6a4c93);
+  color: white !important;
+}
+
+.social-item.text-info:hover {
+  background: linear-gradient(135deg, #0088cc, #005580);
+  color: white !important;
+}
+
+.social-item.text-danger:hover {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  color: white !important;
+}
+
+/* === Кнопка с крутыми эффектами === */
+.btn-orange {
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 15px 32px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 25px rgba(212,175,55,0.3),
+    0 4px 15px rgba(212,175,55,0.2);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  font-size: 1.1rem;
+}
+
+.btn-orange::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s;
+}
+
+.btn-orange:hover::before {
+  left: 100%;
+}
+
+.btn-orange:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 
+    0 20px 40px rgba(212,175,55,0.4),
+    0 12px 30px rgba(212,175,55,0.3);
+  background: linear-gradient(135deg, #b8860b, #d4af37);
+}
+
+/* === Анимации для шапки === */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.header-container .row:first-child {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* === Эффект частиц === */
+.header-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(212,175,55,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(212,175,55,0.1) 0%, transparent 50%);
+  animation: particleFloat 20s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes particleFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* === Заголовок === */
+h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-top: 40px;
+  color: #212529;
+  text-align: center;
+  background: linear-gradient(135deg, #d4af37, #b8860b, #8b4513);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 
+    2px 2px 4px rgba(0,0,0,0.3),
+    0 0 20px rgba(255,255,255,0.8),
+    0 0 40px rgba(255,255,255,0.6);
+  position: relative;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+  z-index: 10;
+}
+
+h1::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -20px;
+  right: -20px;
+  bottom: -10px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 20px;
+  z-index: -1;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #d4af37, #b8860b);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(212,175,55,0.5);
+}
+
+/* === Кнопка справа === */
+.btn-col {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .btn-col {
+    justify-content: flex-end;
+    margin-top: 15px;
+  }
+}
+
+/* === Цвет для Viber === */
+.text-purple {
+  color: #8f5db7;
+}
+.text-purple:hover {
+  color: #a275cc;
+}
+
+/* === стили для кнопки вверх === */
+#scrollTopBtn:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+/* === Стили для карточек преимуществ === */
+.advantage-card {
+  padding: 2rem !important;
+  border-radius: 15px !important;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
+  transition: all 0.3s ease;
+  border: none !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.advantage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15) !important;
+}
+
+.advantage-card .fw-bold {
+  font-size: 1.3rem !important;
+  color: #d4af37;
+  margin-bottom: 1rem !important;
+}
+
+.advantage-card .small {
+  font-size: 1rem !important;
+  line-height: 1.6;
+  color: #495057;
+}
+
+/* === Адаптивность для заголовка === */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* === Подзаголовок под h1 === */
+.main-subtitle {
+  font-size: 1.35rem;
+  color: #6c757d;
+  margin: 22px auto 0 auto;
+  max-width: 700px;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  background: rgba(255,255,255,0.7);
+  border-radius: 12px;
+  padding: 18px 28px;
+  box-shadow: 0 4px 18px rgba(212,175,55,0.07);
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === Анимация появления подзаголовка === */
+.main-subtitle {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s cubic-bezier(.4,0,.2,1), transform 0.9s cubic-bezier(.4,0,.2,1);
+}
+.main-subtitle.fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .main-subtitle {
+    font-size: 1.05rem;
+    padding: 12px 10px;
+    min-height: 60px;
+  }
+}
+
+/* === Баннер скидки === */
+.discount-banner {
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  border-radius: 20px;
+  padding: 25px;
+  margin: 30px auto;
+  max-width: 800px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(212,175,55,0.3);
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.discount-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: rotate 15s linear infinite;
+}
+
+.discount-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.discount-icon {
+  font-size: 3rem;
+  color: white;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.discount-text h3 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.discount-text p {
+  color: rgba(255,255,255,0.9);
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .discount-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .discount-icon {
+    font-size: 2.5rem;
+  }
+  
+  .discount-text h3 {
+    font-size: 1.3rem;
+  }
+  
+  .discount-text p {
+    font-size: 1rem;
+  }
+}
+
+/* === Стили для раздела услуг === */
+.services-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 60px 0;
+}
+
+.services-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 40px;
+  text-align: center;
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.service-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* === Улучшенные стили для изображений услуг === */
+.service-image {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  border-radius: 15px 15px 0 0;
+}
+
+.service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0.9) contrast(1.1);
+}
+
+.service-card:hover .service-img {
+  transform: scale(1.15);
+  filter: brightness(1.1) contrast(1.2);
+}
+
+.service-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover .service-image::after {
+  opacity: 1;
+}
+
+.service-content {
+  padding: 25px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.service-btn {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.service-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* === Адаптивность для услуг === */
+@media (max-width: 768px) {
+  .services-title {
+    font-size: 2rem;
+  }
+  
+  .service-name {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-title {
+    font-size: 1.8rem;
+  }
+  
+  .service-content {
+    padding: 20px;
+  }
+}
+
+/* === Стили для футера === */
+.footer-section {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: #ecf0f1;
+  padding: 60px 0 20px;
+  margin-top: 80px;
+}
+
+.footer-brand {
+  margin-bottom: 30px;
+}
+
+.footer-logo {
+  height: 80px;
+  margin-bottom: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-description {
+  color: #bdc3c7;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  color: #fff;
+}
+
+.social-link.whatsapp:hover {
+  background: #25d366;
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+
+.social-link.viber:hover {
+  background: #8f5db7;
+  box-shadow: 0 5px 15px rgba(143, 93, 183, 0.4);
+}
+
+.social-link.telegram:hover {
+  background: #0088cc;
+  box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4);
+}
+
+.social-link.instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  box-shadow: 0 5px 15px rgba(220, 39, 67, 0.4);
+}
+
+.footer-title {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 25px;
+  font-size: 1.3rem;
+  position: relative;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #b34700, #992f00);
+  border-radius: 2px;
+}
+
+.footer-contacts {
+  margin-bottom: 30px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px 0;
+}
+
+.contact-item i {
+  color: #b34700;
+  font-size: 1.1rem;
+  margin-right: 12px;
+  width: 20px;
+  text-align: center;
+}
+
+.contact-link {
+  color: #bdc3c7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #b34700;
+}
+
+.contact-text {
+  color: #bdc3c7;
+}
+
+.footer-services {
+  margin-bottom: 30px;
+}
+
+.footer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-menu li {
+  margin-bottom: 12px;
+}
+
+.footer-link {
+  color: #bdc3c7;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.footer-link:hover {
+  color: #b34700;
+  transform: translateX(5px);
+}
+
+.footer-link::before {
+  content: '→';
+  position: absolute;
+  left: -20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: #b34700;
+}
+
+.footer-link:hover::before {
+  opacity: 1;
+  left: -15px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 25px;
+  margin-top: 40px;
+}
+
+.copyright {
+  color: #95a5a6;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.work-time {
+  color: #95a5a6;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* === Адаптивность для футера === */
+@media (max-width: 768px) {
+  .footer-section {
+    padding: 40px 0 20px;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+  
+  .footer-title {
+    text-align: center;
+  }
+  
+  .footer-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .contact-item {
+    justify-content: center;
+  }
+  
+  .footer-menu {
+    text-align: center;
+  }
+} 
+
+/* === Форма заказа услуги === */
+.order-form {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(179,71,0,0.10);
+  max-width: 600px;
+}
+.order-form h4 {
+  font-weight: 700;
+  color: #b34700;
+  letter-spacing: 0.01em;
+}
+.order-form .form-control,
+.order-form .form-select {
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  font-size: 1.1rem;
+  padding: 14px 18px;
+  background: #f8f9fa;
+  transition: border-color 0.2s;
+}
+.order-form .form-control:focus,
+.order-form .form-select:focus {
+  border-color: #b34700;
+  box-shadow: 0 0 0 2px rgba(179,71,0,0.10);
+}
+.order-form .btn-orange {
+  font-size: 1.15rem;
+  padding: 12px 36px;
+  border-radius: 14px;
+}
+@media (max-width: 768px) {
+  .order-form {
+    padding: 18px 8px;
+  }
+} 
+
+/* === FAQ Section === */
+.faq-section {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(179,71,0,0.10);
+  max-width: 700px;
+  margin-top: 30px;
+}
+.faq-section h4 {
+  font-weight: 700;
+  color: #b34700;
+  letter-spacing: 0.01em;
+}
+.faq-accordion .accordion-item {
+  border-radius: 14px;
+  margin-bottom: 14px;
+  border: none;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(179,71,0,0.04);
+}
+.faq-accordion .accordion-button {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #b34700;
+  background: #f8f9fa;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+}
+.faq-accordion .accordion-button:not(.collapsed) {
+  background: linear-gradient(90deg, #ffe5d0 0%, #fff 100%);
+  color: #992f00;
+}
+.faq-accordion .accordion-body {
+  background: #fff;
+  color: #495057;
+  font-size: 1.05rem;
+  border-top: 1px solid #f3e7e0;
+  padding: 18px 22px;
+}
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 18px 8px;
+  }
+  .faq-accordion .accordion-button {
+    font-size: 1rem;
+  }
+} 
+
+/* === Кастомный FAQ-аккордеон === */
+.custom-faq {
+  width: 100%;
+  margin: 0 auto;
+}
+.faq-item {
+  background: linear-gradient(120deg, #fff 80%, #f8f9fa 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(179,71,0,0.07);
+  margin-bottom: 18px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+.faq-item.open {
+  box-shadow: 0 8px 32px rgba(179,71,0,0.13);
+}
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #b34700;
+  padding: 22px 24px 22px 54px;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.faq-question:hover, .faq-item.open .faq-question {
+  background: linear-gradient(90deg, #ffe5d0 0%, #fff 100%);
+  color: #992f00;
+}
+.faq-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.faq-item.open .faq-icon {
+  transform: translateY(-50%) rotate(180deg);
+}
+.faq-answer {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  background: #fff;
+  color: #495057;
+  font-size: 1.07rem;
+  padding: 0 28px;
+  border-top: 1px solid #f3e7e0;
+  transition: max-height 0.5s cubic-bezier(.4,0,.2,1), opacity 0.4s cubic-bezier(.4,0,.2,1), padding 0.3s;
+}
+.faq-item.open .faq-answer {
+  opacity: 1;
+  padding: 18px 28px 22px 28px;
+  max-height: 300px;
+}
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 18px 8px;
+  }
+  .faq-question {
+    font-size: 1.05rem;
+    padding: 16px 12px 16px 44px;
+  }
+  .faq-answer {
+    font-size: 0.98rem;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+} 
+
+/* === Секция цен === */
+.pricing-section {
+  margin: 40px auto;
+  max-width: 400px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out 0.8s forwards;
+}
+
+.price-card {
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 12px 40px rgba(179,71,0,0.15);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.price-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #b34700, #992f00);
+}
+
+.price-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(179,71,0,0.25);
+}
+
+.price-header {
+  margin-bottom: 24px;
+}
+
+.price-amount {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #b34700;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.price-period {
+  font-size: 1.2rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.price-details {
+  margin-bottom: 28px;
+}
+
+.price-minimum {
+  font-size: 1.1rem;
+  color: #495057;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  background: rgba(179,71,0,0.1);
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.price-features {
+  text-align: left;
+}
+
+.feature-item {
+  color: #495057;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  padding-left: 8px;
+}
+
+.price-btn {
+  background: linear-gradient(90deg, #b34700, #992f00);
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(179,71,0,0.3);
+}
+
+.price-btn:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(179,71,0,0.4);
+}
+
+/* === Анимации появления === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* === Анимации для карточек преимуществ === */
+.advantage-card {
+  opacity: 0;
+  animation: scaleIn 0.8s ease-out forwards;
+}
+
+.advantage-card:nth-child(1) { animation-delay: 0.2s; }
+.advantage-card:nth-child(2) { animation-delay: 0.4s; }
+.advantage-card:nth-child(3) { animation-delay: 0.6s; }
+.advantage-card:nth-child(4) { animation-delay: 0.8s; }
+
+/* === Анимации для карточек услуг === */
+.service-card {
+  opacity: 0;
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.service-card:nth-child(1) { animation-delay: 0.3s; }
+.service-card:nth-child(2) { animation-delay: 0.5s; }
+.service-card:nth-child(3) { animation-delay: 0.7s; }
+.service-card:nth-child(4) { animation-delay: 0.9s; }
+
+/* === Анимации для формы === */
+.order-form {
+  opacity: 0;
+  animation: scaleIn 1s ease-out 1.2s forwards;
+}
+
+/* === Анимации для FAQ === */
+.faq-section {
+  opacity: 0;
+  animation: slideInRight 1s ease-out 1.5s forwards;
+}
+
+/* === Улучшенные hover-эффекты === */
+.advantage-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+}
+
+.service-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2) !important;
+}
+
+/* === Анимация для кнопки вверх === */
+#scrollTopBtn {
+  transition: all 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 8px 25px rgba(179,71,0,0.4);
+}
+
+/* === Пульсация для важных элементов === */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.price-btn {
+  animation: pulse 2s infinite;
+}
+
+/* === Адаптивность для цен === */
+@media (max-width: 768px) {
+  .price-amount {
+    font-size: 3rem;
+  }
+  .price-card {
+    padding: 24px;
+  }
+} 
+
+/* === Анимации для телефонов и соцсетей === */
+.phone-item {
+  transition: all 0.3s ease;
+  animation: slideInLeft 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.phone-item:nth-child(1) { animation-delay: 0.1s; }
+.phone-item:nth-child(2) { animation-delay: 0.2s; }
+
+.phone-item:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.social-item {
+  transition: all 0.3s ease;
+  animation: scaleIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.social-item:nth-child(1) { animation-delay: 0.3s; }
+.social-item:nth-child(2) { animation-delay: 0.4s; }
+.social-item:nth-child(3) { animation-delay: 0.5s; }
+.social-item:nth-child(4) { animation-delay: 0.6s; }
+
+.social-item:hover {
+  transform: translateY(-3px) scale(1.2);
+}
+
+/* === Улучшенные анимации для заголовка === */
+h1 {
+  animation: fadeInUp 1.2s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+/* === Анимация для логотипа === */
+.header-container .col-auto:first-child {
+  animation: slideInLeft 0.8s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+/* === Анимация для времени работы === */
+.header-container .col-auto:nth-child(2) {
+  animation: slideInRight 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+/* === Анимация для кнопки заказа === */
+.btn-col {
+  animation: scaleIn 0.8s ease-out 0.7s forwards;
+  opacity: 0;
+}
+
+/* === Параллакс эффект для фона === */
+.header-container {
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* === Улучшенные тени и эффекты === */
+.header-container .row:first-child {
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* === Анимация для футера === */
+.footer-section {
+  animation: fadeInUp 1s ease-out 2s forwards;
+  opacity: 0;
+}
+
+/* === Улучшенные hover-эффекты для всех кнопок === */
+.btn-orange {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-orange::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-orange:hover::before {
+  left: 100%;
+}
+
+/* === Анимация для иконок в карточках === */
+.advantage-card .fw-bold::before {
+  content: '';
+  display: inline-block;
+  margin-right: 8px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-5px); }
+  60% { transform: translateY(-3px); }
+}
+
+/* === Улучшенная анимация для FAQ === */
+.faq-item {
+  animation: slideInRight 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.faq-item:nth-child(1) { animation-delay: 1.6s; }
+.faq-item:nth-child(2) { animation-delay: 1.7s; }
+.faq-item:nth-child(3) { animation-delay: 1.8s; }
+.faq-item:nth-child(4) { animation-delay: 1.9s; }
+
+/* === Анимация для формы === */
+.order-form .form-control,
+.order-form .form-select {
+  transition: all 0.3s ease;
+}
+
+.order-form .form-control:focus,
+.order-form .form-select:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(179,71,0,0.15);
+}
+
+/* === Пульсация для важных элементов === */
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(179,71,0,0.3); }
+  50% { box-shadow: 0 0 20px rgba(179,71,0,0.6); }
+}
+
+.price-card {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* === Адаптивность для анимаций === */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+} 
+
+/* === Анимированный текст с эффектом печатной машинки === */
+.animated-text {
+  position: relative;
+  display: inline-block;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.animated-text::after {
+  content: '|';
+  position: absolute;
+  right: -8px;
+  top: 0;
+  color: #b34700;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.animated-text.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #b34700;
+  animation: typing 3s steps(60, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #b34700; }
+} 
+
+/* === Дополнительные крутые эффекты для шапки === */
+
+/* === Неоморфизм эффекты === */
+.header-container .row:first-child {
+  background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(248,249,250,0.95));
+  box-shadow: 
+    20px 20px 60px rgba(0,0,0,0.1),
+    -20px -20px 60px rgba(255,255,255,0.8),
+    inset 5px 5px 10px rgba(255,255,255,0.5),
+    inset -5px -5px 10px rgba(0,0,0,0.05);
+}
+
+/* === 3D эффекты для элементов === */
+.phone-item, .social-item, .btn-orange {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.phone-item:hover, .social-item:hover, .btn-orange:hover {
+  transform: translateY(-5px) rotateX(10deg) rotateY(5deg);
+}
+
+/* === Анимация появления элементов шапки === */
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) rotateX(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px) rotateX(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) rotateY(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px) rotateY(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+  }
+}
+
+/* === Применение анимаций к элементам шапки === */
+.header-container .col-auto:first-child {
+  animation: slideInFromLeft 1s ease-out 0.2s both;
+}
+
+.header-container .col-auto:nth-child(2) {
+  animation: slideInFromTop 1s ease-out 0.4s both;
+}
+
+.phone-item:nth-child(1) {
+  animation: slideInFromBottom 1s ease-out 0.6s both;
+}
+
+.phone-item:nth-child(2) {
+  animation: slideInFromBottom 1s ease-out 0.8s both;
+}
+
+.social-item:nth-child(1) {
+  animation: slideInFromRight 1s ease-out 1s both;
+}
+
+.social-item:nth-child(2) {
+  animation: slideInFromRight 1s ease-out 1.1s both;
+}
+
+.social-item:nth-child(3) {
+  animation: slideInFromRight 1s ease-out 1.2s both;
+}
+
+.social-item:nth-child(4) {
+  animation: slideInFromRight 1s ease-out 1.3s both;
+}
+
+.btn-col {
+  animation: slideInFromTop 1s ease-out 1.4s both;
+}
+
+/* === Эффект свечения для важных элементов === */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 
+      0 8px 25px rgba(179,71,0,0.3),
+      0 0 0 rgba(179,71,0,0.1);
+  }
+  50% {
+    box-shadow: 
+      0 8px 25px rgba(179,71,0,0.3),
+      0 0 20px rgba(179,71,0,0.3);
+  }
+}
+
+.btn-orange {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* === Эффект волн для фона === */
+.header-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(179,71,0,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(179,71,0,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(179,71,0,0.05) 0%, transparent 50%);
+  animation: waveMove 15s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes waveMove {
+  0%, 100% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  33% {
+    transform: translateX(-10px) translateY(-10px) scale(1.1);
+  }
+  66% {
+    transform: translateX(10px) translateY(10px) scale(0.9);
+  }
+}
+
+/* === Эффект параллакса для элементов === */
+.header-container .row:first-child {
+  transform: translateZ(0);
+  transition: transform 0.1s ease-out;
+}
+
+.header-container:hover .row:first-child {
+  transform: translateZ(20px);
+}
+
+/* === Улучшенные hover эффекты === */
+.phone-item:hover .phone-link {
+  transform: scale(1.1);
+  text-shadow: 0 0 15px rgba(179,71,0,0.5);
+}
+
+.social-item:hover i {
+  transform: scale(1.2) rotate(360deg);
+  transition: transform 0.4s ease;
+}
+
+/* === Эффект магнитного притяжения === */
+.phone-item, .social-item, .btn-orange {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.phone-item:hover, .social-item:hover, .btn-orange:hover {
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* === Адаптивность для крутых эффектов === */
+@media (max-width: 768px) {
+  .header-container .row:first-child {
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  .phone-item, .social-item {
+    transform: none !important;
+  }
+  
+  .phone-item:hover, .social-item:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+  }
+} 
+
+/* === Секция "Как заказать технику" === */
+.how-to-order-section {
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.how-to-order-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+  pointer-events: none;
+}
+
+.how-to-order-section::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.how-to-order-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.how-to-order-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #8b4513, #d2691e);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(139,69,19,0.5);
+}
+
+.how-to-order-subtitle {
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+  font-weight: 300;
+}
+
+.step-card {
+  background: rgba(255,255,255,0.95);
+  border-radius: 25px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.2),
+    0 10px 20px rgba(0,0,0,0.1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.step-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #d4af37, #b8860b, #8b4513);
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+.step-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.step-card:hover::after {
+  opacity: 1;
+}
+
+.step-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 
+    0 30px 60px rgba(0,0,0,0.3),
+    0 15px 30px rgba(0,0,0,0.2);
+}
+
+.step-number {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #d4af37;
+  margin-bottom: 20px;
+  opacity: 0.3;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.step-icon {
+  font-size: 3rem;
+  color: #d4af37;
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.step-card:hover .step-icon {
+  transform: scale(1.2) rotate(5deg);
+  color: #b8860b;
+}
+
+.step-card h4 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.step-card p {
+  color: #6c757d;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.delivery-info {
+  background: linear-gradient(135deg, #fff8dc, #f5deb3);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+  border-left: 5px solid #d4af37;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 5px 15px rgba(212,175,55,0.2);
+}
+
+.delivery-info strong {
+  color: #b8860b;
+  font-size: 1rem;
+}
+
+/* === Анимации для карточек === */
+.step-card {
+  animation: slideInUp 0.8s ease-out both;
+}
+
+.step-card:nth-child(1) { animation-delay: 0.2s; }
+.step-card:nth-child(2) { animation-delay: 0.4s; }
+.step-card:nth-child(3) { animation-delay: 0.6s; }
+.step-card:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* === Адаптивность для мобильных устройств === */
+@media (max-width: 1200px) {
+  .how-to-order-title {
+    font-size: 3rem;
+  }
+  
+  .step-card {
+    padding: 30px 25px;
+  }
+  
+  .step-number {
+    font-size: 3.5rem;
+  }
+  
+  .step-icon {
+    font-size: 2.5rem;
+  }
+  
+  .step-card h4 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .how-to-order-title {
+    font-size: 2.5rem;
+  }
+  
+  .how-to-order-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .step-card {
+    padding: 25px 20px;
+    margin-bottom: 20px;
+  }
+  
+  .step-number {
+    font-size: 3rem;
+  }
+  
+  .step-icon {
+    font-size: 2.2rem;
+  }
+  
+  .step-card h4 {
+    font-size: 1.4rem;
+  }
+  
+  .step-card p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .how-to-order-section {
+    padding: 40px 0;
+  }
+  
+  .how-to-order-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .how-to-order-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .step-card {
+    padding: 20px 15px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+  }
+  
+  .step-number {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .step-icon {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .step-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .step-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .delivery-info {
+    padding: 15px;
+    margin-top: 15px;
+  }
+  
+  .delivery-info strong {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .how-to-order-title {
+    font-size: 1.8rem;
+  }
+  
+  .how-to-order-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .step-card {
+    padding: 15px 10px;
+    margin-bottom: 10px;
+  }
+  
+  .step-number {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .step-icon {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .step-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .step-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .delivery-info {
+    padding: 12px;
+    margin-top: 12px;
+  }
+  
+  .delivery-info strong {
+    font-size: 0.85rem;
+  }
+}
+
+/* === Дополнительные эффекты для мобильных устройств === */
+@media (max-width: 768px) {
+  .step-card:hover {
+    transform: translateY(-5px) scale(1.02);
+  }
+  
+  .step-card:hover .step-icon {
+    transform: scale(1.1) rotate(3deg);
+  }
+  
+  .how-to-order-section::after {
+    animation: rotate 30s linear infinite;
+  }
+}
+
+/* === Улучшенные эффекты для планшетов === */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .step-card {
+    transition: all 0.4s ease;
+  }
+  
+  .step-card:hover {
+    transform: translateY(-10px) scale(1.03);
+  }
+}
+
+/* === Эффекты для больших экранов === */
+@media (min-width: 1025px) {
+  .step-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .step-card:hover {
+    transform: translateY(-20px) scale(1.08);
+  }
+  
+  .step-card:hover .step-icon {
+    transform: scale(1.3) rotate(8deg);
+  }
+}
+
+/* === Анимация появления заголовка === */
+.how-to-order-title {
+  animation: fadeInDown 1s ease-out;
+}
+
+.how-to-order-subtitle {
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Пульсация для иконок === */
+.step-icon {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.step-card:hover .step-icon {
+  animation: none;
+}
+
+/* === Эффект свечения для карточек === */
+.step-card {
+  position: relative;
+}
+
+.step-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 25px;
+  padding: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #ffd700);
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease-in-out infinite;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.step-card:hover::before {
+  opacity: 1;
+}
+
+/* === Улучшенные стили для текста === */
+.step-card p strong {
+  color: #667eea;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* === Эффект параллакса для фона === */
+.how-to-order-section {
+  background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+  .how-to-order-section {
+    background-attachment: scroll;
+  }
+} 
